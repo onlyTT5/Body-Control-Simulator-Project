@@ -1,6 +1,11 @@
 #include "ui.h"
 #include "oled.h"
 
+void Ui_Init(void)
+{
+    OLED_Init();
+}
+
 void Ui_ShowBootSelfTest(void)
 {
     OLED_Clear();

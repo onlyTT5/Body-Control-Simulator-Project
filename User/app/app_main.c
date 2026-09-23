@@ -144,18 +144,20 @@ static uint8_t AppMain_CanLoopbackSelfTest(void)
 
 void AppMain_Init(void)
 {
+		Ui_Init();
+	
     BspButton_Init();
     BodyControl_Init();
 
     Ui_ShowBootSelfTest();
 
     /* 板载 LED 自检 */
-		// AppMain_FlashLed(3U, 150U);
+		AppMain_FlashLed(3U, 150U);
 
 		/* CAN 协议软件自测：通过快闪两次；失败则常亮 1 秒 */
 		if (AppMain_CanProtocolSelfTest())
 		{
-				// AppMain_FlashLed(2U, 80U);
+				AppMain_FlashLed(2U, 80U);
 		}
 		else
 		{
