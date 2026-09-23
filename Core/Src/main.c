@@ -26,6 +26,7 @@
 /* APP_MODE */
 #include "body_control.h"
 #include "ui.h"
+#include "app_main.h"
 /* BSP_MODE */
 #include "bsp_button.h"
 #include "bsp_led.h"
@@ -94,10 +95,25 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+	AppMain_Init();
 	OLED_Init();
 
-	BodyControl_Init();
 	BspButton_Init();
+	BodyControl_Init();
+
+	Ui_ShowBootSelfTest();
+
+	/* 板载 LED 自检：PC13 为低电平点亮 */
+	for (uint8_t i = 0; i < 3; i++)
+	{
+			BspLed_Set(1U);
+			HAL_Delay(150);
+
+			BspLed_Set(0U);
+			HAL_Delay(150);
+	}
+
+	HAL_Delay(800);
 
 	Ui_ShowStatus(BodyControl_GetState());
   /* USER CODE END 2 */
@@ -106,16 +122,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		if (BspButton_LightWasPressed())
-		{
-				BodyControl_ToggleLight();
-
-				Ui_ShowStatus(BodyControl_GetState());
-		}
-
-HAL_Delay(10);
-
-HAL_Delay(10);
+		AppMain_Run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
