@@ -615,6 +615,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\app\app_main.c</FilePath>
             </File>
+            <File>
+              <FileName>can_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\app\can_protocol.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

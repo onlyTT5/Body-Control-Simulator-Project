@@ -23,14 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-/* APP_MODE */
-#include "body_control.h"
-#include "ui.h"
 #include "app_main.h"
-/* BSP_MODE */
-#include "bsp_button.h"
-#include "bsp_led.h"
-#include "oled.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,26 +89,6 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 	AppMain_Init();
-	OLED_Init();
-
-	BspButton_Init();
-	BodyControl_Init();
-
-	Ui_ShowBootSelfTest();
-
-	/* 板载 LED 自检：PC13 为低电平点亮 */
-	for (uint8_t i = 0; i < 3; i++)
-	{
-			BspLed_Set(1U);
-			HAL_Delay(150);
-
-			BspLed_Set(0U);
-			HAL_Delay(150);
-	}
-
-	HAL_Delay(800);
-
-	Ui_ShowStatus(BodyControl_GetState());
   /* USER CODE END 2 */
 
   /* Infinite loop */
