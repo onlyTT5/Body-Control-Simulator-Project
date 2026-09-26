@@ -1,0 +1,16 @@
+**/.git.backup/
+*.axf
+*.hex
+*.o
+*.d
+*.crf
+*.uvguix.*
+*.uvoptx
+**/Objects/
+**/Listings/
+*.map
+*.lst
+*.lnp
+*.sct
+*.dep
+*.htm
