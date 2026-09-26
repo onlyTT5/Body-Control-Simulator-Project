@@ -558,6 +558,11 @@
               <FileType>1</FileType>
               <FilePath>.\Bsp\bsp_tick.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Bsp\bsp_buzzer.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
